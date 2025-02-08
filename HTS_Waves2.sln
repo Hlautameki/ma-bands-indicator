@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTS_Waves2", "HTS_Waves2\HTS_Waves2.csproj", "{04bb16e3-f1bf-4af8-9e7e-faea00978518}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04bb16e3-f1bf-4af8-9e7e-faea00978518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04bb16e3-f1bf-4af8-9e7e-faea00978518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04bb16e3-f1bf-4af8-9e7e-faea00978518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04bb16e3-f1bf-4af8-9e7e-faea00978518}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
