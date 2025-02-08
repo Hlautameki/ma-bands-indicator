@@ -17,6 +17,9 @@ namespace cAlgo
         [Parameter("Ultimate Slow MA Period", DefaultValue = 576)]
         public int UltimateSlowMAPeriod { get; set; }
 
+        [Parameter("Show Ultimate Slow MA", DefaultValue = false)]
+        public bool ShowUltimateSlowMA { get; set; }
+
         [Parameter("MA Type", DefaultValue = MovingAverageType.WilderSmoothing)]
         public MovingAverageType MAType { get; set; }
 
@@ -74,8 +77,11 @@ namespace cAlgo
             FastLowMA[index] = _fastLowMA.Result[index];
             SlowHighMA[index] = _slowHighMA.Result[index];
             SlowLowMA[index] = _slowLowMA.Result[index];
-            UltimateSlowHighMA[index] = _ultimateSlowHighMA.Result[index];
-            UltimateSlowLowMA[index] = _ultimateSlowLowMA.Result[index];
+            if (ShowUltimateSlowMA)
+            {
+                UltimateSlowHighMA[index] = _ultimateSlowHighMA.Result[index];
+                UltimateSlowLowMA[index] = _ultimateSlowLowMA.Result[index];
+            }
         }
     }
 }
