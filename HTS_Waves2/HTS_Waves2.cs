@@ -14,6 +14,9 @@ namespace cAlgo
         [Parameter("Slow MA Period", DefaultValue = 144)]
         public int SlowMAPeriod { get; set; }
 
+        [Parameter("Ultimate Slow MA Period", DefaultValue = 576)]
+        public int UltimateSlowMAPeriod { get; set; }
+
         [Parameter("MA Type", DefaultValue = MovingAverageType.WilderSmoothing)]
         public MovingAverageType MAType { get; set; }
 
@@ -35,7 +38,13 @@ namespace cAlgo
         [Output("Slow MA Low", LineColor = "Red")]
         public IndicatorDataSeries SlowLowMA { get; set; }
 
-        private MovingAverage _fastHighMA, _fastLowMA, _slowHighMA, _slowLowMA;
+        [Output("Ultimate Slow MA High", LineColor = "Yellow")]
+        public IndicatorDataSeries UltimateSlowHighMA { get; set; }
+
+        [Output("Ultimate Slow MA Low", LineColor = "Yellow")]
+        public IndicatorDataSeries UltimateSlowLowMA { get; set; }
+
+        private MovingAverage _fastHighMA, _fastLowMA, _slowHighMA, _slowLowMA, _ultimateSlowHighMA, _ultimateSlowLowMA;
 
         protected override void Initialize()
         {
@@ -54,6 +63,8 @@ namespace cAlgo
             _fastLowMA = Indicators.MovingAverage(bars.LowPrices, FastMAPeriod, MAType);
             _slowHighMA = Indicators.MovingAverage(bars.HighPrices, SlowMAPeriod, MAType);
             _slowLowMA = Indicators.MovingAverage(bars.LowPrices, SlowMAPeriod, MAType);
+            _ultimateSlowHighMA = Indicators.MovingAverage(bars.HighPrices, UltimateSlowMAPeriod, MAType);
+            _ultimateSlowLowMA = Indicators.MovingAverage(bars.LowPrices, UltimateSlowMAPeriod, MAType);
         }
 
         public override void Calculate(int index)
@@ -63,6 +74,8 @@ namespace cAlgo
             FastLowMA[index] = _fastLowMA.Result[index];
             SlowHighMA[index] = _slowHighMA.Result[index];
             SlowLowMA[index] = _slowLowMA.Result[index];
+            UltimateSlowHighMA[index] = _ultimateSlowHighMA.Result[index];
+            UltimateSlowLowMA[index] = _ultimateSlowLowMA.Result[index];
         }
     }
 }
